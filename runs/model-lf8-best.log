@@ -1,0 +1,88 @@
+[W1015 15:52:32.624802074 Context.cpp:444] Warning: torch.backends.cuda.preferred_linalg_library is an experimental feature. If you see any error or unexpected behavior when this flag is set please file an issue on GitHub. (function operator())
+target data/model_e_lf8.npz: 8 grounded ports, 157 points (1-5.623e+07 Hz, plus DC), z0 50 Ohm; device cuda
+conductors of the A terminals (initial DC path, from 0 Hz): {1,2} {3,4}
+8 grounded ports (8 terminals, each against GND)
+  resonant block: 16 private nodes, 300/300 series-RLC branches
+  DC path: 4 private nodes, 78/78 series-RL edges, corner fL <= 1e+06 Hz
+  window: L <= 1 H, C <= 0.001 F, 0.0001 <= R <= 1e+15 Ohm, Q <= 30; leak 1e-12 S
+  trainable parameters: 1056
+seeds [100, 101, 102, 103, 104, 105, 106, 107] (8 models batched)
+DC-path pretrain: 142 points (f <= 1.05e+07 Hz), 8000 steps
+  loss median 1.658e+00 [min 1.500e+00, max 3.763e+00]  (68 it/s)
+out-of-band penalty: weight 0.1, curvature above 1, 32 random triplets per step in 1.69e+08-1e+10 Hz
+joint training: 30000 steps, relative error until step 30000, then complex-log error
+step      0  rel loss median 2.740e+00 [min 2.512e+00, max 3.021e+00]  out-of-band median 0.000e+00 [min 0.000e+00, max 0.000e+00]  lr 2.00e-03
+step   1500  rel loss median 1.146e+00 [min 1.139e+00, max 1.261e+00]  out-of-band median 8.775e-04 [min 3.535e-05, max 3.679e-03]  lr 1.10e-02
+step   3000  rel loss median 1.104e+00 [min 3.579e-01, max 1.129e+00]  out-of-band median 1.967e-02 [min 9.271e-03, max 4.920e-02]  lr 2.00e-02
+step   4500  rel loss median 1.056e+00 [min 3.396e-01, max 1.118e+00]  out-of-band median 1.046e-04 [min 0.000e+00, max 6.832e-03]  lr 1.98e-02
+step   6000  rel loss median 1.054e+00 [min 3.398e-01, max 1.118e+00]  out-of-band median 7.341e-03 [min 3.304e-04, max 2.311e-02]  lr 1.94e-02
+step   7500  rel loss median 1.054e+00 [min 3.368e-01, max 1.129e+00]  out-of-band median 5.140e-04 [min 0.000e+00, max 1.445e-03]  lr 1.87e-02
+step   9000  rel loss median 1.040e+00 [min 3.399e-01, max 1.116e+00]  out-of-band median 6.573e-03 [min 2.796e-04, max 1.623e-02]  lr 1.77e-02
+step  10500  rel loss median 1.034e+00 [min 3.365e-01, max 1.124e+00]  out-of-band median 2.275e-04 [min 0.000e+00, max 2.134e-03]  lr 1.64e-02
+step  12000  rel loss median 1.035e+00 [min 3.380e-01, max 1.119e+00]  out-of-band median 1.295e-02 [min 4.432e-04, max 1.853e-02]  lr 1.50e-02
+step  13500  rel loss median 1.028e+00 [min 3.366e-01, max 1.118e+00]  out-of-band median 2.914e-03 [min 4.520e-04, max 1.163e-02]  lr 1.34e-02
+step  15000  rel loss median 1.019e+00 [min 3.343e-01, max 1.120e+00]  out-of-band median 3.692e-04 [min 0.000e+00, max 1.843e-03]  lr 1.17e-02
+step  16500  rel loss median 1.013e+00 [min 3.351e-01, max 1.119e+00]  out-of-band median 3.029e-04 [min 1.225e-04, max 2.789e-03]  lr 1.00e-02
+step  18000  rel loss median 1.013e+00 [min 3.342e-01, max 1.117e+00]  out-of-band median 4.351e-04 [min 3.364e-05, max 3.306e-03]  lr 8.26e-03
+step  19500  rel loss median 1.012e+00 [min 3.336e-01, max 1.117e+00]  out-of-band median 1.193e-03 [min 2.930e-04, max 6.939e-03]  lr 6.58e-03
+step  21000  rel loss median 1.012e+00 [min 3.343e-01, max 1.117e+00]  out-of-band median 1.361e-04 [min 0.000e+00, max 1.588e-03]  lr 5.00e-03
+step  22500  rel loss median 1.005e+00 [min 3.383e-01, max 1.116e+00]  out-of-band median 2.188e-04 [min 5.264e-05, max 3.300e-03]  lr 3.57e-03
+step  24000  rel loss median 1.004e+00 [min 3.340e-01, max 1.116e+00]  out-of-band median 9.177e-06 [min 0.000e+00, max 9.707e-04]  lr 2.34e-03
+step  25500  rel loss median 1.003e+00 [min 3.353e-01, max 1.116e+00]  out-of-band median 2.135e-03 [min 8.610e-04, max 7.362e-03]  lr 1.34e-03
+step  27000  rel loss median 1.003e+00 [min 3.354e-01, max 1.116e+00]  out-of-band median 4.170e-04 [min 0.000e+00, max 2.502e-03]  lr 6.05e-04
+step  28500  rel loss median 1.003e+00 [min 3.323e-01, max 1.116e+00]  out-of-band median 7.299e-04 [min 2.954e-04, max 6.634e-03]  lr 1.54e-04
+step  29999  rel loss median 1.003e+00 [min 3.324e-01, max 1.116e+00]  out-of-band median 4.728e-04 [min 0.000e+00, max 2.533e-03]  lr 2.50e-06
+joint training: 33 it/s x 8 models; 897 s
+slim seed 100: 378 -> 200 elements, score 51.190 -> 49.150 dB
+slim seed 101: 378 -> 145 elements, score 37.876 -> 37.743 dB
+slim seed 102: 378 -> 224 elements, score 51.494 -> 51.505 dB
+slim seed 103: 378 -> 197 elements, score 48.985 -> 46.151 dB
+slim seed 104: 378 -> 111 elements, score 40.330 -> 40.073 dB
+slim seed 105: 378 -> 141 elements, score 40.786 -> 40.637 dB
+slim seed 106: 378 -> 201 elements, score 45.813 -> 45.565 dB
+slim seed 107: 378 -> 158 elements, score 50.428 -> 50.314 dB
+fine-tune of the slimmed networks: steps 20000 to 30000
+/home/AD/luciano.prono/container-py312-torch/circuit_sgd/topology-RLC-v11/train.py:397: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  sch.step()
+step  21000  rel loss median 1.002e+00 [min 3.393e-01, max 1.124e+00]  out-of-band median 6.572e-03 [min 7.891e-05, max 2.241e-01]  lr 5.00e-03
+step  22500  rel loss median 1.000e+00 [min 3.387e-01, max 1.118e+00]  out-of-band median 2.318e-03 [min 4.137e-04, max 1.427e-01]  lr 3.57e-03
+step  24000  rel loss median 1.000e+00 [min 3.376e-01, max 1.118e+00]  out-of-band median 2.172e-03 [min 1.519e-06, max 6.179e-02]  lr 2.34e-03
+step  25500  rel loss median 1.000e+00 [min 3.409e-01, max 1.118e+00]  out-of-band median 4.367e-03 [min 1.194e-04, max 7.875e-02]  lr 1.34e-03
+step  27000  rel loss median 1.000e+00 [min 3.338e-01, max 1.117e+00]  out-of-band median 1.413e-03 [min 6.812e-05, max 5.479e-02]  lr 6.05e-04
+step  28500  rel loss median 1.000e+00 [min 3.339e-01, max 1.117e+00]  out-of-band median 1.704e-03 [min 2.944e-05, max 3.783e-02]  lr 1.54e-04
+step  29999  rel loss median 1.000e+00 [min 3.357e-01, max 1.117e+00]  out-of-band median 8.931e-03 [min 2.500e-04, max 1.768e-01]  lr 2.50e-06
+slim 28 s, fine-tune 30 it/s x 8 models, 329 s
+total 1372 s
+seed 100: score 49.186 dB  log loss 1.8117e+01  S: clog 16.55 mae 12.15 p95 54.41 lf 16.68 hf 5.95 rip 5.723  Z: clog 68.54 mae 66.21 p95 160.82 lf 138.26 hf 0.79 rip 7.461  Y: clog 62.47 mae 61.44 p95 142.80 lf 67.96 hf 49.89 rip 4.636
+   as floating 4-port: score 19.812 dB  S: clog 12.72 mae 9.74 p95 32.60 lf 2.61 hf 12.29 rip 1.919  Z: clog 41.25 mae 37.65 p95 93.59 lf 69.70 hf 14.49 rip 3.514  Y: clog 5.47 mae 4.22 p95 24.37 lf 0.00 hf 10.62 rip 0.013
+passivity on 3341 frequencies (DC, 0.001-1e+13 Hz): min 1 - sigma_max(S)^2 = 1.997e-10, min eig Herm(Y z0) = -3.575e-11 -> PASS
+   wide band 1-1e+10 Hz: curvature max: below band nan, in band 4.63e+04, above band 3.28; out-of-band peaks above 1: 3 (1.97e+08 Hz: 1.56, 5.31e+08 Hz: 1, 1.29e+09 Hz: 1); DC: Z finite
+seed 101: score 36.646 dB  log loss 1.4132e+01  S: clog 13.07 mae 7.32 p95 36.66 lf 7.32 hf 6.89 rip 0.062  Z: clog 0.24 mae 0.19 p95 0.77 lf 0.07 hf 0.52 rip 0.194  Y: clog 96.63 mae 95.87 p95 242.24 lf 97.44 hf 62.27 rip 0.915
+   as floating 4-port: score 6.528 dB  S: clog 5.77 mae 4.54 p95 27.46 lf 0.01 hf 12.10 rip 0.037  Z: clog 8.42 mae 7.82 p95 21.24 lf 8.92 hf 6.49 rip 0.344  Y: clog 5.39 mae 4.13 p95 23.94 lf 0.02 hf 10.46 rip 0.011
+passivity on 3341 frequencies (DC, 0.001-1e+13 Hz): min 1 - sigma_max(S)^2 = 7.104e-11, min eig Herm(Y z0) = 1.450e-11 -> PASS
+   wide band 1-1e+10 Hz: curvature max: below band nan, in band 4.28e+04, above band 2.83; out-of-band peaks above 1: 1 (1.76e+08 Hz: 2.08); DC: Z finite
+seed 102: score 51.376 dB  log loss 1.9324e+01  S: clog 14.39 mae 9.79 p95 32.28 lf 10.28 hf 9.08 rip 0.930  Z: clog 49.53 mae 47.66 p95 133.48 lf 98.21 hf 0.94 rip 3.605  Y: clog 90.20 mae 89.46 p95 208.88 lf 103.94 hf 61.71 rip 3.962
+   as floating 4-port: score 11.679 dB  S: clog 5.99 mae 4.77 p95 26.63 lf 0.00 hf 12.13 rip 0.186  Z: clog 23.51 mae 23.19 p95 49.84 lf 23.61 hf 23.13 rip 1.130  Y: clog 5.53 mae 4.29 p95 24.44 lf 0.00 hf 10.64 rip 0.011
+passivity on 3341 frequencies (DC, 0.001-1e+13 Hz): min 1 - sigma_max(S)^2 = 1.408e-10, min eig Herm(Y z0) = 2.961e-11 -> PASS
+   wide band 1-1e+10 Hz: curvature max: below band nan, in band 3.62e+04, above band 1.89; out-of-band peaks above 1: 6 (1.82e+08 Hz: 1.06, 2.82e+08 Hz: 1.04, 3.55e+08 Hz: 1.01, 2.29e+08 Hz: 1, 1.19e+09 Hz: 1); DC: Z finite
+seed 103: score 45.351 dB  log loss 1.6931e+01  S: clog 12.42 mae 7.26 p95 24.57 lf 6.39 hf 5.96 rip 2.673  Z: clog 49.60 mae 47.68 p95 111.88 lf 87.03 hf 0.81 rip 3.701  Y: clog 74.03 mae 72.97 p95 193.25 lf 95.48 hf 47.31 rip 3.345
+   as floating 4-port: score 13.186 dB  S: clog 8.71 mae 6.43 p95 30.06 lf 0.00 hf 12.07 rip 1.825  Z: clog 25.30 mae 22.93 p95 44.27 lf 28.17 hf 14.96 rip 3.137  Y: clog 5.55 mae 4.30 p95 24.41 lf 0.00 hf 10.64 rip 0.011
+passivity on 3341 frequencies (DC, 0.001-1e+13 Hz): min 1 - sigma_max(S)^2 = -4.878e-10, min eig Herm(Y z0) = -1.271e-10 -> PASS
+   wide band 1-1e+10 Hz: curvature max: below band nan, in band 5.4e+04, above band 13.1; out-of-band peaks above 1: 3 (1.8e+08 Hz: 5.38, 3.09e+08 Hz: 1.19, 3.51e+08 Hz: 1.16); DC: Z finite
+seed 104: score 38.542 dB  log loss 1.4865e+01  S: clog 14.41 mae 8.80 p95 52.62 lf 9.04 hf 7.23 rip 0.024  Z: clog 0.16 mae 0.08 p95 0.39 lf 0.11 hf 0.41 rip 0.048  Y: clog 101.05 mae 100.31 p95 244.94 lf 99.73 hf 64.80 rip 0.418
+   as floating 4-port: score 4.571 dB  S: clog 5.82 mae 4.60 p95 27.63 lf 0.00 hf 12.36 rip 0.015  Z: clog 2.46 mae 2.00 p95 6.78 lf 2.15 hf 5.15 rip 0.234  Y: clog 5.43 mae 4.17 p95 24.07 lf 0.02 hf 10.65 rip 0.009
+passivity on 3341 frequencies (DC, 0.001-1e+13 Hz): min 1 - sigma_max(S)^2 = -5.571e-11, min eig Herm(Y z0) = -1.911e-11 -> PASS
+   wide band 1-1e+10 Hz: curvature max: below band nan, in band 4.51e+03, above band 4.57; out-of-band peaks above 1: 3 (1.76e+08 Hz: 1.59, 1.95e+08 Hz: 1.28, 2.57e+08 Hz: 1.07); DC: Z finite
+seed 105: score 38.207 dB  log loss 1.4732e+01  S: clog 12.18 mae 6.37 p95 23.86 lf 5.95 hf 7.74 rip 0.061  Z: clog 0.44 mae 0.37 p95 1.14 lf 0.16 hf 0.82 rip 0.191  Y: clog 101.99 mae 101.32 p95 250.26 lf 99.53 hf 73.72 rip 0.854
+   as floating 4-port: score 7.852 dB  S: clog 5.82 mae 4.59 p95 27.61 lf 0.01 hf 12.20 rip 0.023  Z: clog 12.31 mae 11.58 p95 31.87 lf 13.80 hf 5.26 rip 0.273  Y: clog 5.43 mae 4.16 p95 23.98 lf 0.02 hf 10.51 rip 0.009
+passivity on 3341 frequencies (DC, 0.001-1e+13 Hz): min 1 - sigma_max(S)^2 = -1.095e-10, min eig Herm(Y z0) = -3.107e-11 -> PASS
+   wide band 1-1e+10 Hz: curvature max: below band nan, in band 1.64e+04, above band 2.48; out-of-band peaks above 1: 1 (1.91e+08 Hz: 1.73); DC: Z finite
+seed 106: score 44.552 dB  log loss 1.6945e+01  S: clog 16.39 mae 11.65 p95 60.09 lf 12.64 hf 9.74 rip 1.313  Z: clog 24.74 mae 23.66 p95 69.79 lf 38.73 hf 0.93 rip 3.012  Y: clog 92.53 mae 91.90 p95 228.79 lf 101.22 hf 62.74 rip 2.712
+   as floating 4-port: score 8.561 dB  S: clog 5.98 mae 4.71 p95 27.65 lf 0.00 hf 12.43 rip 0.121  Z: clog 14.27 mae 13.34 p95 28.23 lf 16.80 hf 5.65 rip 2.348  Y: clog 5.43 mae 4.17 p95 24.38 lf 0.00 hf 10.62 rip 0.009
+passivity on 3341 frequencies (DC, 0.001-1e+13 Hz): min 1 - sigma_max(S)^2 = -4.963e-11, min eig Herm(Y z0) = -1.769e-11 -> PASS
+   wide band 1-1e+10 Hz: curvature max: below band nan, in band 3.82e+04, above band 3.26; out-of-band peaks above 1: 0; DC: Z finite
+seed 107: score 49.363 dB  log loss 1.8259e+01  S: clog 16.74 mae 12.48 p95 46.26 lf 17.01 hf 7.29 rip 4.959  Z: clog 65.01 mae 62.55 p95 154.22 lf 133.37 hf 0.32 rip 8.189  Y: clog 66.33 mae 65.36 p95 151.05 lf 78.45 hf 49.18 rip 4.348
+   as floating 4-port: score 17.589 dB  S: clog 10.34 mae 8.17 p95 32.82 lf 0.00 hf 12.32 rip 2.177  Z: clog 36.97 mae 33.52 p95 71.02 lf 61.74 hf 6.81 rip 5.247  Y: clog 5.46 mae 4.21 p95 24.10 lf 0.00 hf 10.58 rip 0.008
+passivity on 3341 frequencies (DC, 0.001-1e+13 Hz): min 1 - sigma_max(S)^2 = 1.997e-10, min eig Herm(Y z0) = 8.406e-12 -> PASS
+   wide band 1-1e+10 Hz: curvature max: below band nan, in band 3.39e+04, above band 2.18; out-of-band peaks above 1: 2 (4.79e+08 Hz: 1.02, 7.76e+08 Hz: 1); DC: Z finite
+score over 8 seed(s): mean 44.153  std 5.725  median 44.951  best 36.646 (seed 101)
