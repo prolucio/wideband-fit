@@ -1,8 +1,0 @@
-runs/model-lf8-best/seeds/model_s100.pt: score 19.812 dB  (low band 24.785, high band 16.303; S 12.716, Z 41.247, Y 5.474)  200 elements
-runs/model-lf8-best/seeds/model_s101.pt: score 6.528 dB  (low band 3.267, high band 13.447; S 5.774, Z 8.419, Y 5.390)  145 elements
-runs/model-lf8-best/seeds/model_s102.pt: score 11.678 dB  (low band 7.967, high band 18.609; S 5.990, Z 23.513, Y 5.532)  224 elements
-runs/model-lf8-best/seeds/model_s103.pt: score 13.186 dB  (low band 9.668, high band 16.111; S 8.710, Z 25.295, Y 5.554)  197 elements
-runs/model-lf8-best/seeds/model_s104.pt: score 4.570 dB  (low band 1.199, high band 12.770; S 5.824, Z 2.460, Y 5.427)  111 elements
-runs/model-lf8-best/seeds/model_s105.pt: score 7.852 dB  (low band 4.945, high band 13.301; S 5.815, Z 12.313, Y 5.427)  141 elements
-runs/model-lf8-best/seeds/model_s106.pt: score 8.561 dB  (low band 5.751, high band 13.185; S 5.983, Z 14.274, Y 5.426)  201 elements
-runs/model-lf8-best/seeds/model_s107.pt: score 17.589 dB  (low band 20.639, high band 13.577; S 10.336, Z 36.969, Y 5.463)  158 elements

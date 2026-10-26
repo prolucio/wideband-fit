@@ -1,18 +1,4 @@
-# python
 __pycache__/
 *.pyc
-
-# local tooling
+runs/
 .claude/
-
-# exploration runs (init-distribution and DC-node comparisons, 2026-10-16); kept on disk, not versioned
-runs/model-*-qact-*
-runs/model-*-f0only*
-runs/model-*-unif*
-runs/model-*-dc0*
-runs/model-*-v12a*
-# scratch / one-off tests
-runs/tests*/
-!runs/tests-lf8/
-runs/tests-lf8/*
-!runs/tests-lf8/NOTES.md

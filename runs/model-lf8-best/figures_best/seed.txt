@@ -1,1 +1,0 @@
-seed 101 (best): score 36.6465 dB, rank 1 of 8; median of the run 44.9511 dB

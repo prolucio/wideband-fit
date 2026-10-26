@@ -1,5 +1,4 @@
-# tested with python 3.13, torch 2.12, numpy 2.4, matplotlib 3.11, scipy 1.17
+# tested with python 3.13, torch 2.12, numpy 2.4, matplotlib 3.11
 torch
 numpy
 matplotlib
-scipy  # only for tools/transient_check.py and tools/netcheck.py
