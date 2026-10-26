@@ -61,11 +61,11 @@ python train.py --target data/model.npz --seeds 0-31 --out runs/model
 ## Citation
 
 ```bibtex
-@inproceedings{prono2027gradient,
+@unpublished{prono2026gradient,
   title     = {Gradient-Based Fitting of Passive-by-Construction Netlists for {EM} Macromodeling},
   author    = {Prono, Luciano and Simone, Silvia and Pareschi, Fabio and Setti, Gianluca},
-  booktitle = {IEEE International Symposium on Circuits and Systems (ISCAS)},
-  year      = {2027}
+  note      = {Under review},
+  year      = {2026}
 }
 ```
 
