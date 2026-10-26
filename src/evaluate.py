@@ -1,6 +1,6 @@
 """Errors of saved netlists against a target (Tables II and III of the paper).
 
-    python evaluate.py --target data/hf.npz runs/hf/100-131/seed_100.pt [more checkpoints] [--plots] [--scores scores.csv]
+    python src/evaluate.py --target data/hf.npz runs/hf/100-131/seed_100.pt [more checkpoints] [--plots] [--scores scores.csv]
 
 For every checkpoint: magnitude error (dB) and phase error (degrees), averaged over S, Z, Y (metrics.py); the number of
 RLC edges, RL edges and R_eps resistors; passivity on a dense frequency grid. --plots writes <checkpoint>_{S,Z,Y}.png

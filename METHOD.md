@@ -11,7 +11,7 @@ is the band of the target (positive frequencies). Fixed parameters are in [Table
 
 ---
 
-## 1. Targets [`sparams.py`, `parse_touchstone.py`]
+## 1. Targets [`src/sparams.py`, `src/parse_touchstone.py`]
 
 A target is a file with `freq` (Hz, may contain $f=0$), `params` ($\mathbf S(f)$, complex) and `z0`. $\mathbf Z$ and $\mathbf Y$ follow from
 $\mathbf S$ (Eq. 1 of the paper):
@@ -31,7 +31,7 @@ The DC point enters the loss and the reported errors (S and Y exist there on the
 
 ---
 
-## 2. Trainable netlist [`netlist.py`]
+## 2. Trainable netlist [`src/netlist.py`]
 
 ### Topology
 
@@ -74,7 +74,7 @@ When the RLC edges are disconnected (stage i) the internal nodes are isolated an
 
 ---
 
-## 3. Initialisation [`netlist.py`, `sparams.conductor_groups`]
+## 3. Initialisation [`src/netlist.py`, `sparams.conductor_groups`]
 
 Each seed draws its own random numbers: `torch.manual_seed(seed)` is called before the netlist is built, and the numbers are
 drawn in this order: $f_0$, $z$, $Q$ of the RLC edges, then $R$, $f_L$ of the RL edges.
@@ -94,7 +94,7 @@ conductor, or every A terminal as its own conductor, was found to give poor fits
 
 ---
 
-## 4. Training loss [`losses.py`]
+## 4. Training loss [`src/losses.py`]
 
 At every frequency, for each domain $h\in\{\mathbf S,\mathbf Z,\mathbf Y\}$, the mean over the entries $(i,j)$ of
 
@@ -110,7 +110,7 @@ $\mathbf Z,\mathbf Y$. The sum of the three domains is averaged over all frequen
 - Missing $\mathbf Z$ or $\mathbf Y$ (Section 1) are left out at that frequency.
 - $\mathcal L_\text{ln}$ has many local minima far from the target, so it is used only after $\mathcal L_\text{rel}$ has brought the fit close.
 
-## 5. Out-of-band penalty [`losses.py`]
+## 5. Out-of-band penalty [`src/losses.py`]
 
 At every training step $K=32$ frequencies $f_k$ are drawn, log-uniformly, over $[1\,\text{Hz}, f_\min/3]\cup[3f_\max, 10\,\text{GHz}]$ (one interval is
 empty when the band starts below 3 Hz, as for LF; the draw is uniform in $\ln f$ over the total length). At each $f_k$ and its neighbours
@@ -147,7 +147,7 @@ frequencies of each step, which are drawn from the random generator after the la
 depends on the batch it is run in. To reproduce a seed, rerun the same `--seeds` list, with `--deterministic` for bit-identical results
 on the same hardware and software.
 
-## 7. Pruning [`prune.py`]
+## 7. Pruning [`src/prune.py`]
 
 Applied to every seed after stage ii. The edges (RLC and RL) are sorted by their maximum admittance magnitude over the positive target
 frequencies, weakest first, and removed one by one (removed = admittance 0). A removal is kept only if
@@ -160,7 +160,7 @@ This is a test of each component against the unpruned value, not against the pre
 internal nodes with a single neighbour are removed with their edges (no current flows through them). Pruning keeps the netlist passive
 and reciprocal.
 
-## 8. Errors and ranking [`metrics.py`, `evaluate.py`, `seed_statistics.py`]
+## 8. Errors and ranking [`src/metrics.py`, `src/evaluate.py`, `src/seed_statistics.py`]
 
 For each domain, over all target frequencies (DC included) and the unique entries ($i\le j$), skipping the entries that are missing
 (Section 1) or exactly 0 in the target (their dB and phase do not exist; at DC a solver writes exact zeros for the coupling between
@@ -171,18 +171,18 @@ insulated traces):
 
 The reported errors are the means over $\mathbf S$, $\mathbf Z$, $\mathbf Y$. Seeds are ranked by magnitude error only; the median is the lower median
 (position $\lfloor(n-1)/2\rfloor+1$ of $n$). The number of edges is #RLC + #RL + #$R_\varepsilon$ (one $R_\varepsilon$ per node except the reference).
-Tables II and III of the paper are produced by `seed_statistics.py`; in Table II each column has its own best value and quartiles,
+Tables II and III of the paper are produced by `src/seed_statistics.py`; in Table II each column has its own best value and quartiles,
 independently of the seed.
 
-## 9. Export and passivity check [`netlist.py`, `metrics.py`]
+## 9. Export and passivity check [`src/netlist.py`, `src/metrics.py`]
 
 `seed_<seed>.cir` is a SPICE subcircuit with pins `P1A P1B ... PPA PPB` (port $p$: $P_{pA}$ positive, $P_{pB}$ negative; $P_{1B}$ is the reference
 node): for each edge still present, `Rrlc/Lrlc/Crlc` in series or `Rrl/Lrl`, and $R_\varepsilon$ (1 TΩ) from every used node to $P_{1B}$.
-`evaluate.py` and `train.py` check passivity on DC, 200 points per decade from $10^{-3}$ Hz to $10^{13}$ Hz and the target frequencies:
+`src/evaluate.py` and `train.py` check passivity on DC, 200 points per decade from $10^{-3}$ Hz to $10^{13}$ Hz and the target frequencies:
 $1-\sigma_\max(\mathbf S)^2\ge-10^{-9}$ and the smallest eigenvalue of the Hermitian part of $Z_0\mathbf Y$ at least $-10^{-9}$. This holds by construction;
 the check detects numerical problems.
 
-**Transient test** (`transient.py`, Fig. 4). Port 1: ideal voltage source between $P_{1A}$ and $P_{1B}$, square wave 0–10 V, period 1 µs,
+**Transient test** (`src/transient.py`, Fig. 4). Port 1: ideal voltage source between $P_{1A}$ and $P_{1B}$, square wave 0–10 V, period 1 µs,
 50 % duty, 1 ns edges; port 2: $R=10\,\Omega$ in parallel with $C=1$ nF between $P_{2A}$ and $P_{2B}$; ports 3 and 4 open. The script writes a SPICE
 deck of this bench and integrates the same circuit (modified nodal equations, BDF2, fixed step 0.1 ns, zero initial state). Checked against
 $\hat{\mathbf S}$ for sinusoidal inputs: the steady-state gain and phase agree.
@@ -199,5 +199,5 @@ $\hat{\mathbf S}$ for sinusoidal inputs: the steady-state gain and phase agree.
 | $R_\max$ | $10^{15}$ Ω | $C_\max$ | 1 mF | $R_\varepsilon$ | 1 TΩ |
 | $\varphi$ | 0.1 ($\mathbf S$), $10^{-3}$ ($\mathbf Z,\mathbf Y$) | $K$ | 32 | $\kappa$ threshold | 1 |
 
-Stage lengths, learning rates and the pruning tolerance are in Section 6 and 7; all are constants at the top of `train.py`, `prune.py`,
-`netlist.py` and `losses.py`.
+Stage lengths, learning rates and the pruning tolerance are in Section 6 and 7; all are constants at the top of `train.py`, `src/prune.py`,
+`src/netlist.py` and `src/losses.py`.

@@ -1,6 +1,6 @@
 """Touchstone (.sNp) -> .npz target for train.py.
 
-    python parse_touchstone.py model.s4p -o data/model.npz [--fmin 1e5] [--fmax 1e9]
+    python src/parse_touchstone.py model.s4p -o data/model.npz [--fmin 1e5] [--fmax 1e9]
 
 Reads an N-port Touchstone v1 file of S-parameters (RI, MA or DB format; the frequency points are kept as they are, no
 resampling) and writes an .npz with

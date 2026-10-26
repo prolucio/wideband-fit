@@ -1,6 +1,6 @@
 """Transient simulation of exported netlists (Fig. 4 of the paper).
 
-    python transient.py runs/lf/100-131/seed_118.cir runs/hf/.../seed_272.cir --labels LF HF --out runs/transient
+    python src/transient.py runs/lf/100-131/seed_118.cir runs/hf/.../seed_272.cir --labels LF HF --out runs/transient
 
 Test bench: a square wave on port 1 (ideal voltage source between P1A and the reference P1B), an RC load on port 2 (R_LOAD in
 parallel with C_LOAD between P2A and P2B), the other ports open. Writes

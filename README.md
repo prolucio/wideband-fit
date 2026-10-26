@@ -29,13 +29,13 @@ the other seeds trained with it (METHOD.md, Section 6): to reproduce it, rerun t
 Errors and plots of saved netlists:
 
 ```bash
-python evaluate.py --target data/hf.npz runs/hf/100-131/seed_100.pt --plots
+python src/evaluate.py --target data/hf.npz runs/hf/100-131/seed_100.pt --plots
 ```
 
 Transient simulation of netlists (square wave on port 1, RC load on port 2; also writes the SPICE deck of the test):
 
 ```bash
-python transient.py runs/lf/100-131/seed_118.cir runs/hf/100-131/seed_102.cir --labels LF HF --out runs/transient
+python src/transient.py runs/lf/100-131/seed_118.cir runs/hf/100-131/seed_102.cir --labels LF HF --out runs/transient
 ```
 
 Statistics over many seeds (400 seeds in batches of 32):
@@ -45,17 +45,17 @@ for s in $(seq 100 32 499); do
   e=$((s + 31)); [ $e -gt 499 ] && e=499
   python train.py --target data/hf.npz --seeds $s-$e --out runs/hf/$s-$e --deterministic
 done
-python seed_statistics.py runs/hf/*/scores.csv
+python src/seed_statistics.py --lf runs/lf/*/scores.csv --hf runs/hf/*/scores.csv --tex
 ```
 
 ### Your own data
 
 ```bash
-python parse_touchstone.py model.s4p -o data/model.npz [--fmin 1e5 --fmax 1e9]
+python src/parse_touchstone.py model.s4p -o data/model.npz [--fmin 1e5 --fmax 1e9]
 python train.py --target data/model.npz --seeds 0-31 --out runs/model
 ```
 
-`parse_touchstone.py` reads S-parameters. The two targets of the paper (`data/hf.npz`, `data/lf.npz`) are described in
+`src/parse_touchstone.py` reads S-parameters. The two targets of the paper (`data/hf.npz`, `data/lf.npz`) are described in
 [data/README.md](data/README.md).
 
 ## Citation

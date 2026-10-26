@@ -10,8 +10,8 @@ at the two ends of the other, each between the trace end (terminal A) and the pl
 | `lf.npz` | LF | Q3D (`Q3D_4port_format_1Hz_100MHz.s4p`) | DC and 156 points, 20 per decade, 1 Hz – 56.2 MHz |
 
 ```bash
-python parse_touchstone.py HFSS_4port_V1.s4p -o data/hf.npz --fmin 1e5 --fmax 1e9
-python parse_touchstone.py Q3D_4port_format_1Hz_100MHz.s4p -o data/lf.npz --fmax 6e7   # then add the DC point
+python src/parse_touchstone.py HFSS_4port_V1.s4p -o data/hf.npz --fmin 1e5 --fmax 1e9
+python src/parse_touchstone.py Q3D_4port_format_1Hz_100MHz.s4p -o data/lf.npz --fmax 6e7   # then add the DC point
 ```
 
 The Q3D export has no DC point. It is added from the 8-port Q3D export of the same structure (`Q3D_8port_V1.s8p`, every

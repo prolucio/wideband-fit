@@ -24,13 +24,16 @@ Output in --out: scores.csv (one row per seed), seed_<seed>.pt (checkpoint, read
 import argparse
 import csv
 import os
+import sys
 import time
 import warnings
 
 import torch
 from torch.func import functional_call, vmap
 
-import sparams
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
+
+import sparams  # noqa: E402
 from losses import Loss, OutOfBandPenalty
 from metrics import fit_errors, is_passive, magnitude_error, phase_error
 from netlist import Netlist

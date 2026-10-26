@@ -1,6 +1,6 @@
 """Statistics of the fits over many seeds (Tables II and III of the paper).
 
-    python seed_statistics.py --lf runs/lf/*/scores.csv --hf runs/hf/*/scores.csv [--tex]
+    python src/seed_statistics.py --lf runs/lf/*/scores.csv --hf runs/hf/*/scores.csv [--tex]
 
 Reads the scores.csv files (written by train.py, or by evaluate.py --scores) of the LF and of the HF target, each the seeds of
 one batch, and prints
